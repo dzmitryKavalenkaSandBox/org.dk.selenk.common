@@ -1,13 +1,13 @@
-package org.dk.selenk.common.widget.web
+package org.dk.selenk.common.widget.mobile.android
 
 import org.dk.selenk.common.AutomationType
 import org.dk.selenk.common.widget.BaseWidgetTest
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.MethodSource
 
-class DivTest : BaseWidgetTest(Div) {
+class FrameLayoutTest : BaseWidgetTest(FrameLayout) {
 
-    private fun expectedWidget(): String = Div.WEB
+    private fun expectedWidget(): String = FrameLayout.UIAUTOMATOR2
 
     @ParameterizedTest
     @MethodSource("widgetProvider")

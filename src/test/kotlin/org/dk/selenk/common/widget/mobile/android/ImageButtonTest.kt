@@ -1,13 +1,13 @@
-package org.dk.selenk.common.widget.web
+package org.dk.selenk.common.widget.mobile.android
 
 import org.dk.selenk.common.AutomationType
 import org.dk.selenk.common.widget.BaseWidgetTest
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.MethodSource
 
-class DivTest : BaseWidgetTest(Div) {
+class ImageButtonTest : BaseWidgetTest(ImageButton) {
 
-    private fun expectedWidget(): String = Div.WEB
+    private fun expectedWidget(): String = ImageButton.UIAUTOMATOR2
 
     @ParameterizedTest
     @MethodSource("widgetProvider")

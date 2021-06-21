@@ -1,15 +1,15 @@
-package org.dk.selenk.common.widget.web
+package org.dk.selenk.common.widget.mobile.ios
 
 import org.dk.selenk.common.AutomationType
 import org.dk.selenk.common.SelenKConfig
 
-object Div : WebWidget {
+object SecureTextField : XcUiWidget {
 
-    override val WEB: String = "div"
+    override val XCUITEST: String = "XCUIElementTypeSecureTextField"
 
     override fun widget(): String =
         when (SelenKConfig.automationType) {
-            is AutomationType.Web -> WEB
+            is AutomationType.XcUiTest -> XCUITEST
             else -> throw widgetNoSupportedOnPlatformExceptionProvider()
         }
 }

@@ -1,4 +1,4 @@
-package org.dk.selenk.common.widget.general
+package org.dk.selenk.common.widget.mobile
 
 import org.dk.selenk.common.AutomationType
 import org.dk.selenk.common.SelenKConfig
@@ -6,13 +6,13 @@ import org.dk.selenk.common.widget.BaseWidgetTest
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.MethodSource
 
-class StaticTextTest : BaseWidgetTest(StaticText) {
+class CheckboxTest : BaseWidgetTest(Checkbox) {
 
     private fun expectedWidget(automationType: AutomationType = SelenKConfig.automationType): String =
         when (automationType) {
-            is AutomationType.Web -> StaticText.WEB
-            is AutomationType.XcUiTest -> StaticText.XCUITEST
-            is AutomationType.UiAutomator2 -> StaticText.UIAUTOMATOR2
+            is AutomationType.XcUiTest -> Checkbox.XCUITEST
+            is AutomationType.UiAutomator2 -> Checkbox.UIAUTOMATOR2
+            else -> ""
         }
 
     @ParameterizedTest
