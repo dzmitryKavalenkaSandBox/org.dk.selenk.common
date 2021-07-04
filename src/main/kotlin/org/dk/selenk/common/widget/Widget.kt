@@ -1,6 +1,6 @@
 package org.dk.selenk.common.widget
 
-import org.dk.selenk.common.SelenKConfig
+import org.dk.selenk.common.SelenKConfig.automationType
 import org.dk.selenk.common.exception.ErrorCodeDefinition
 import org.dk.selenk.common.exception.SelenKException
 
@@ -9,7 +9,7 @@ interface Widget {
 
     fun widgetNoSupportedOnPlatformExceptionProvider(): Throwable =
         SelenKException(
-            "'${this::class.java.simpleName}' widget is not supported on '${SelenKConfig.automationType.type}' platform",
+            "'${this::class.java.simpleName}' widget is not supported on '${automationType.type}' platform",
             ErrorCodeDefinition.NOT_SUPPORTED_ON_PLATFORM
         )
 

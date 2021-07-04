@@ -10,7 +10,7 @@ object Button : XcUiWidget, UiAutomator2Widget, WebWidget {
 
     override val WEB: String = "button"
     override val XCUITEST: String = "XCUIElementTypeButton"
-    override val UIAUTOMATOR2: String = "android.org.dk.selenk.widget.Button"
+    override val UIAUTOMATOR2: String = "android.widget.Button"
 
     override fun widget(): String =
         when (SelenKConfig.automationType) {

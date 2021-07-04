@@ -31,8 +31,6 @@ abstract class BaseWidgetTest(val widget: Widget) {
                 AutomationType.XcUiTest -> this is XcUiWidget
                 AutomationType.UiAutomator2 -> this is UiAutomator2Widget
             }
-
-
     }
 
     fun AutomationType.assertWidgetResolving(expectedWidget: String) {
