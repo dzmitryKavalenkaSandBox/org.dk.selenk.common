@@ -1,4 +1,4 @@
-rootProject.name = "org.dk.selenk.common"
+rootProject.name = "common"
 
 pluginManagement {
     resolutionStrategy {
@@ -9,3 +9,4 @@ pluginManagement {
         }
     }
 }
+include("ksepium")

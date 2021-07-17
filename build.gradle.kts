@@ -1,12 +1,14 @@
+group = "org.dk.selenk"
+version = "1.0-SNAPSHOT"
+
 plugins {
     kotlin("jvm")
     id("io.qameta.allure") version "2.8.1"
+    `maven-publish`
 }
 
-group = "org.dk.selenk.common"
-version = "1.0-SNAPSHOT"
-
 repositories {
+    mavenLocal()
     mavenCentral()
     jcenter()
 }
@@ -18,6 +20,22 @@ allure {
         version = "2.14.0"
     }
 
+}
+
+val sourcesJar by tasks.creating(Jar::class) {
+    classifier = "sources"
+    from(sourceSets["main"].allSource)
+}
+
+publishing {
+    publications {
+        register("mavenKotlin", MavenPublication::class) {
+            groupId = group.toString()
+            artifactId = rootProject.name
+            from(components["kotlin"])
+            artifact(sourcesJar)
+        }
+    }
 }
 
 dependencies {
