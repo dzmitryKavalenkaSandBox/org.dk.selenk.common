@@ -3,14 +3,13 @@ version = "1.0-SNAPSHOT"
 
 plugins {
     kotlin("jvm")
-    id("io.qameta.allure") version "2.8.1"
+    id("io.qameta.allure") version "2.9.6"
     `maven-publish`
 }
 
 repositories {
     mavenLocal()
     mavenCentral()
-    jcenter()
 }
 
 allure {
@@ -40,30 +39,30 @@ publishing {
 
 dependencies {
     implementation(kotlin("stdlib", version = "${project.properties["kotlinVersion"]}"))
-    testImplementation("io.mockk:mockk:1.11.0")
+    testImplementation("io.mockk:mockk:1.12.3")
     testImplementation("org.hamcrest:hamcrest-all:1.3")
-    testImplementation("org.junit.jupiter:junit-jupiter-engine:5.1.0")
-    testImplementation("org.junit.jupiter:junit-jupiter-params:5.1.0")
+    testImplementation("org.junit.jupiter:junit-jupiter-engine:5.8.2")
+    testImplementation("org.junit.jupiter:junit-jupiter-params:5.8.2")
 //    testImplementation("oio.qameta.allure:allure-junit5:2.14.0")
 }
 
 tasks {
     test {
         useJUnitPlatform { }
-        finalizedBy("copyAllureHistoryBefore", "generateAllureReport", "copyAllureHistoryAfter")
+//        finalizedBy("copyAllureHistoryBefore", "generateAllureReport", "copyAllureHistoryAfter")
     }
 
-    register<Exec>("generateAllureReport") {
-        commandLine = listOf("allure", "generate", "-c", "build/allure-results")
-    }
-
-    register<Copy>("copyAllureHistoryBefore") {
-        from("allure-report/history")
-        into("tmp/allure-report/history")
-    }
-
-    register<Copy>("copyAllureHistoryAfter") {
-        from("tmp/allure-report/history")
-        into("allure-report/history")
-    }
+//    register<Exec>("generateAllureReport") {
+//        commandLine = listOf("allure", "generate", "-c", "build/allure-results")
+//    }
+//
+//    register<Copy>("copyAllureHistoryBefore") {
+//        from("allure-report/history")
+//        into("tmp/allure-report/history")
+//    }
+//
+//    register<Copy>("copyAllureHistoryAfter") {
+//        from("tmp/allure-report/history")
+//        into("allure-report/history")
+//    }
 }
